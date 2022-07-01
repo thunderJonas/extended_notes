@@ -1,0 +1,20 @@
+
+<ion-card >
+<ion-item  class="bigTitle" lines="none">
+  <ion-card-title>Details</ion-card-title>
+
+</ion-item>
+
+  <ion-card-content>
+    <ion-item class="ion-no-padding" style="--ion-item-background: transparent" lines="none">
+    <ion-textarea id="title" (click)="titleClick()" readonly="{{readOnlyTitle}}" (keydown)="checkKey($event, title)" autosize rows="1" maxlength="30" id="title" placeholder="Ereignis Überschrift" class="event" value="{{title}}"></ion-textarea>
+      <ion-label style="--width: fit-content; padding: 0px !important; margin: 0px" slot="end" class="dat">22.12.2021</ion-label>
+
+    </ion-item>
+    <ion-textarea  (click)="descClick()" readonly="{{readOnlyDesc}}" (keydown)="checkKey($event, 'description')" autosize rows="10" cols="10" maxlength="500" class="input-message" id="description" placeholder="Beschreibe was du denkst" auto-focus="true" class="event" value="{{description}}"></ion-textarea>
+  </ion-card-content>
+  <ion-icon src="./assets/emojis/feeling.svg"  id="deckel" (click)="emojiShow()"></ion-icon>
+  <ion-icon (click)="muell()" class="emojis" *ngFor="let item of emojis; index as i" src="{{emojiSrc[i]}}" id="{{item}}" ></ion-icon>
+  <ion-button class="kaka" fill="clear" id="killButton" (click)="closeEntry()">Kill me</ion-button>
+
+</ion-card>

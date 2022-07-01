@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" style="box-shadow: 0px 0px 10px 1px grey">
+  <ion-item  class="bigTitle" lines="none">
+    <ion-label class="ion-text-center">Details</ion-label>
+  </ion-item>
+</ion-header >
+<ion-content class="ion-no-padding ion-no-margin">
+<ion-card class="ion-no-padding ion-no-margin">
+<ion-card-header>
+
+  <ion-card-title class="ion-text-end" style="font-size: small; color: darkgray" >{{dateTime}}</ion-card-title>
+
+  <ion-card-subtitle style="font-size: medium">
+    <ion-item class="ion-no-padding" > <ion-input  [(ngModel)]="title" id="title" (keydown)="blockEnter($event)" rows="1" autoGrow="true" maxlength="35" placeholder="Ereignis Überschrift"  type="text" >
+    </ion-input>
+    </ion-item>
+  </ion-card-subtitle>
+</ion-card-header>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+    <ion-textarea  [(ngModel)]="content" (keydown)="blockEnter($event)" autoGrow="true" rows="10" cols="10" maxlength="500"  id="content" placeholder="Beschreibe was du denkst" type="text" auto-focus="true" class="event" ></ion-textarea>
+    </ion-item>
+  </ion-card-content>
+
+</ion-card>
+  <div class="app-emotion"></div>
+
+
+</ion-content>
+<ion-footer class="ion-float-sm-left" style="bottom: 0px; margin:0px auto; width: 100%; box-shadow: 1px 0px 5px 1px darkgray">
+   <ion-button  fill="purple" style="width: 48vw; color: white" id="saveButton" (click)="saveEntry()"> <ion-icon slot="start" name="checkmark-sharp"></ion-icon>Save</ion-button>
+
+
+  <ion-button  fill="purple" style="width: 48vw; color: white" id="closeButton" (click)="close()"><ion-icon slot="start" name="close-sharp"></ion-icon>
+    Close</ion-button>
+</ion-footer>

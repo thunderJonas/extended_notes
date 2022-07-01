@@ -1,0 +1,58 @@
+
+
+
+
+@keyframes popUp {
+  0%{
+  opacity: 0%;
+}
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.bigTitle{
+ color: white;
+  --ion-item-background:  purple;
+
+}
+
+
+
+#content{
+  font-size:medium;
+  min-height: 30px;
+}
+
+#title{
+ font-size: large;
+ color: purple;
+  min-height: 30px;
+}
+
+
+ion-card, .card-ios, .card-md {
+  border: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-style: none !important;
+
+}
+.card{
+  border: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-style: none !important;
+}
+
+#footer {
+  position : absolute;
+  bottom : 0;
+  height : 40px;
+  margin-top : 40px;
+}
+
+
+
+

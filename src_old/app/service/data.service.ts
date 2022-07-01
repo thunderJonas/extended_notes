@@ -1,0 +1,76 @@
+import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import {Data} from '../interfaces/data';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  public notes: Data[] = [];
+//public loaded: boolean = false;
+  public loaded = false;
+
+  constructor(private storage: Storage) {
+    this.storage.create();
+  }
+
+  load(): Promise<boolean> {
+
+
+
+    // Return  a  promise so that we know when this operation has completed
+    return new Promise((resolve) => {
+
+      // Get the notes that were saved into storage
+      this.storage.get('notes').then((notes) => {
+
+        // Only set this.notes to the returned value if there were values stored
+        if (notes != null){
+          this.notes = notes;
+        }
+
+     // This allows us to check if the data has been loaded in or not
+        this.loaded = true;
+        resolve(true);
+      });
+    });
+  }
+
+//Save the current array of notes to storage
+  save(): void {
+    this.storage.set('notes', this.notes);
+  }
+
+//Return the note that has an id matching the id passed in
+  getData(id): Data {
+    return this.notes.find(note => note.id === id);
+  }
+
+//Create a unique id that is one larger than the current largest id
+  createNote(title): void {
+
+    const id = Math.max(...this.notes.map(note => parseInt(note.id, 10)), 0) + 1;
+
+    this.notes.push({
+      id: id.toString(),
+      title,
+      content: ''
+    });
+
+    this.save();
+  }
+
+  deleteNote(note): void {
+
+ // Get the index in the array of the note that was passed in
+    const index = this.notes.indexOf(note);
+
+ // Delete that element of the array and resave the data
+    if (index > -1){
+      this.notes.splice(index, 1);
+      this.save();
+    }
+  }
+
+}

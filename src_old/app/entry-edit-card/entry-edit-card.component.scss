@@ -1,0 +1,119 @@
+ion-card{
+  position: absolute;
+  border-radius: 0px;
+  margin:0px auto;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  animation: 1s me 1;
+  --background: white;
+}
+
+
+
+
+
+@keyframes me {
+  0%{
+  opacity: 0%;
+}
+  100%{
+    opacity: 1;
+  }
+}
+
+ion-card-title{
+  position: initial;
+  overflow: hidden;
+  font-size: medium;
+  color: white;
+  text-align: center;
+  width: 100%;
+
+}
+
+.bigTitle{
+  color: white;
+
+  --ion-item-background:  purple;
+ --width: 100%;
+  --padding: 0px !important;
+
+}
+
+ion-card-content{
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.34);
+}
+
+.dat{
+ --color: grey;
+  --background-color: grey;
+  font-size: smaller;
+}
+
+#description{
+
+  font-size:medium;
+
+}
+
+#title{
+ font-size: medium;
+ color: purple;
+}
+
+#killButton{
+ position: absolute;
+  width: 100px;
+  margin: 0px auto;
+  color: rgba(128, 0, 128, 0.6);
+  --box-shadow: 0px 0px 5px 1px lightgray;
+}
+
+#killButton:hover{
+  animation: 1s buttonAnimation 1 ease-in-out;
+}
+
+@keyframes buttonAnimation {
+  50%{
+    --box-shadow: 0px 0px 1px 1px lightgray;
+    --background: #f5f5f5;
+    transform: scale(0.9);
+  }
+  100%{
+    --box-shadow: 0px 0px 5px 1px lightgray;
+    transform: scale(1.0);
+
+  }
+}
+
+
+.kaka{
+
+}
+
+
+.emojis{
+  border-radius: 100%;
+  position: absolute;
+  z-index: 444;
+  box-shadow: 2px 2px 15px 2px lightgray;
+  background-color: transparent;
+  color: transparent;
+  margin: 0px auto;
+
+  top: 70vh;
+}
+
+#deckel{
+  position: absolute;
+
+  border-radius: 100%;
+  background-color: transparent;
+ // border: 1px solid lightgray;
+  //box-shadow: 0px 0px 5px 1px lightgray;
+  color: transparent;
+  z-index: 999;
+}
+
+

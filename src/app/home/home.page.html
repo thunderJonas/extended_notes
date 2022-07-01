@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start" fill="clear" (click)="lala()" >
+      <ion-button ><ion-icon style="color: grey" name="menu-outline"></ion-icon></ion-button>
+
+    </ion-buttons>
+    <ion-buttons slot="primary" fill="clear">
+      <ion-button (click)="newEntry()"><ion-icon style="color: grey" icon="add"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title style="color: purple" class="ion-text-center">Introflect Diary</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-item-sliding style="z-index: 555; " *ngFor="let data of entry.getAll(); index as i">
+    <ion-item-options style="z-index: 555">
+      <ion-item-option style="z-index: 555; box-shadow: -3px 1px 10px 0px black; width: 20vw; border-top-left-radius: 99px" side="end" color="danger" (click)="deleteEntry(data.id)"><ion-icon size="large" name="trash-outline"></ion-icon></ion-item-option>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    </ion-item-options>
+  <app-if-entry  id="{{data.id}}}" title="{{data.title}}" content="{{data.content}}" emotion="{{data.emotion}}" emotionWeight="{{data.emotionWeight}}" dateTime="{{data.dateTime}}" (click)="editEntry(data.id, data.title, data.content,data.emotion, data.emotionWeight, data.dateTime)"></app-if-entry>
+
+  </ion-item-sliding>
+  <ion-button (click)="delAllEntrys()">PUSH ME HARD</ion-button>
 </ion-content>
+

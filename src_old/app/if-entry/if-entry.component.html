@@ -1,0 +1,7 @@
+<ion-card button="true" (click)="clicked(this.id)">
+  <ion-item lines="none">
+    <ion-card-title slot="start">{{title}}</ion-card-title>
+    <div slot="end" id="scaleParent" style="width:{{scaleWidth}}px"><div  style="width:{{scale}}px; background-color:{{scaleColor}}" id="scale"></div></div>
+  </ion-item>
+  <ion-card-content>{{description}}</ion-card-content>
+</ion-card>

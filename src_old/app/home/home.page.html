@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" fill="clear" (click)="addNote()" >
+      <ion-button ><ion-icon style="color: grey" name="menu-outline"></ion-icon></ion-button>
+
+    </ion-buttons>
+    <ion-buttons slot="primary" fill="clear">
+      <ion-button (click)="openEntry('','')"><ion-icon style="color: grey" icon="add"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title style="color: purple" class="ion-text-center">
+      Introflect Diary
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-if-entry *ngFor="let item of data; index as i" id="{{i}}" title="{{item.title}}" emotion="{{item.emotion}}" scale="{{item.scale}}" description="{{item.description}}" (click)="openEntry(item.title, item.description)"></app-if-entry>
+
+</ion-content>
