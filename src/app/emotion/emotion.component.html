@@ -1,0 +1,3 @@
+<ion-icon src="{{emoHoodSrc}}" (touchmove)="setEmotionWeight($event)" id="emoHood" (click)="emojiShow()"></ion-icon>
+<ion-icon button="true" (click)="setEmotion(i)" class="emojis" *ngFor="let item of emojis; index as i" src="{{emojis[i][0]}}" id="{{emojis[i][1]}}"></ion-icon>
+<div id="barVal"></div><div id="bar"></div>
